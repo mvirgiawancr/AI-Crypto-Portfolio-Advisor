@@ -17,6 +17,14 @@ interface TokenData {
   balance: string;
   percentage: number;
 }
+interface TokenItem {
+  symbol: string;
+  value: number;
+  balance: string;
+  contractAddress: string;
+  decimals: number;
+  logo?: string;
+}
 
 const COLORS = [
   "#3B82F6",
@@ -52,12 +60,12 @@ export default function PortfolioPieChart() {
       const { tokens = [] } = await res.json();
 
       const total = tokens.reduce(
-        (sum: number, t: { value: number }) => sum + t.value,
+        (sum: number, t: TokenItem) => sum + t.value,
         0
       );
       setData(
         total
-          ? tokens.map((t) => ({
+          ? tokens.map((t: TokenItem) => ({
               ...t,
               percentage: (t.value / total) * 100,
             }))
