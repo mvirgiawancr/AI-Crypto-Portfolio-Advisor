@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Crypto Portfolio Advisor 🪄📊
 
-## Getting Started
+One-page dApp built with **Next.js 14**, **Tailwind**, **Wagmi**, **RainbowKit**, **Recharts**, **Covalent** & **Google Gemini**.  
+Connect any **EVM wallet**, see your **token allocation** in a pie chart, and get **AI-driven risk analysis** displayed as a radar chart.
 
-First, run the development server:
+---
 
+## ✨ Features
+| Feature | Status |
+|---|---|
+| 🔌 Wallet connect (MetaMask, WalletConnect, Coinbase) | ✅ |
+| 🥧 Real-time **Pie Chart** of token allocation | ✅ |
+| 🎯 **Radar Chart** risk score (Volatility, Centralization, Maturity, etc.) | ✅ |
+| 🔄 Auto-refresh when switching **chains** or **addresses** | ✅ |
+| 🪙 Supports **BNB Chain**, Ethereum, Polygon, Arbitrum, Optimism | ✅ |
+| 🆓 Uses **Google Gemini free tier** (no OpenAI quota issues) | ✅ |
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend**: Next.js App Router, TypeScript, Tailwind CSS  
+- **Web3**: wagmi v2, viem, RainbowKit  
+- **Charts**: Recharts  
+- **Data**: Covalent API (balances) + Google Gemini (risk analysis)  
+- **Deployment**: Vercel Edge Functions (API routes)  
+
+---
+
+## 🚀 Quick Start
+
+### 1. Clone & install
+```bash
+git clone https://github.com/mvirgiawancr/AI-Crypto-Portfolio-Advisor.git
+cd ai-crypto-portfolio-advisor
+npm install
+```
+### 2. Environment variables
+Create .env file or just copy `.env.example` to `.env` and fill in your API key:
+```env
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+COVALENT_API_KEY=your_covalent_key
+GOOGLE_API_KEY=your_gemini_key
+```
+Get your API keys from:
+- [Covalent API](https://www.covalenthq.com/)
+- [Google Gemini](https://developers.google.com/gemini)
+- [WalletConnect](https://cloud.walletconnect.com/)
+
+### 3. Run Locally
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Open your browser at [http://localhost:3000](http://localhost:3000)
+
+### 🔧 API Endpoints
+| Method | Path                 | Description                         |
+| ------ | -------------------- | ----------------------------------- |
+| `GET`  | `/api/portfolio`     | Token balances per chain (Covalent) |
+| `POST` | `/api/risk-analysis` | AI risk scores (Google Gemini)      |
+
+### 📦 Scripts
+```bash
+npm run dev      # start dev server
+npm run build    # build for production
+npm run start    # start production server
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🤝 Contribute
+PRs welcome! Please open an issue first for major changes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 📄 License
+MIT © 2025 mvirgiawancr
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tip: Star ⭐ the repo if it helps you!
