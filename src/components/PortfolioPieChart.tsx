@@ -51,7 +51,10 @@ export default function PortfolioPieChart() {
       );
       const { tokens = [] } = await res.json();
 
-      const total = tokens.reduce((sum, t) => sum + t.value, 0);
+      const total = tokens.reduce(
+        (sum: number, t: { value: number }) => sum + t.value,
+        0
+      );
       setData(
         total
           ? tokens.map((t) => ({
